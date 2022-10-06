@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -46,23 +47,21 @@ public class ListPerguntasVitima {
 
         System.out.println(respostas.toString());
 
-    for(String r:respostas){
         int count = 0;
-        if(r.startsWith("S")){
-            count++;
+        Iterator<String> iterator = respostas.iterator();
+        while (iterator.hasNext()) {
+            String resp = iterator.next();
+            if (resp.startsWith("S")) {
+                count++;
+            }
         }
-            if(count == 2){
-                System.out.println("Suspeito");
-            }
-            if(count <= 4){
-                System.out.println("Cumplice");
-            }
-            if(count == 5){
-                System.out.println("Assassina");
-            }
-            else{
-                System.out.println("Inocente");
-            }
+
+        switch (count) {
+            case 2 -> System.out.println("Suspeito(a)");
+            case 3, 4 -> System.out.println("Cumplice");
+            case 5 -> System.out.println("Assassino(a)");
+            default -> System.out.println("Inocente");
+        }
+
     }
-}
 }
