@@ -104,8 +104,7 @@ System.out.println();
         Map<Boolean, List<Integer>> imparesMultiplos = collectList.stream()
                 .collect(Collectors.groupingBy(i -> (i % 3 == 0 && i % 5 == 0)));
         System.out.println(imparesMultiplos);
-
-
+        
 //        Dica: collect(Collectors.groupingBy(new Function())
     }
 }
