@@ -6,7 +6,7 @@ import lombok.Setter;
 public abstract class Conta implements iConta{
 
     private static final int AGENCIA_PADRAO = 1;
-    private static int SEQUENCIAL = 1;
+    private static int SEQUENCIAL = 0;
     protected int agencia;
     protected int numeroDaConta;
     private double saldo;
@@ -23,7 +23,7 @@ public abstract class Conta implements iConta{
     @Override
     public void sacar(double valor) {
         if (valor > saldo) {
-            System.out.println("Erro: Quantia maior que o valor disponível.");
+            System.out.println("\nErro: Quantia maior que o valor disponível.");
         }
         else{
             saldo -= valor;
